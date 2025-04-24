@@ -15,7 +15,7 @@ Logs show etcd connection or quorum-related issues.
 
 ## Recovery Steps
 
-### 1\. Scale Down to a Single Replica
+### 1. Scale Down to a Single Replica
 
 Scale down the vCluster to **1 replica** using either of the following methods:
 
@@ -47,7 +47,7 @@ And ensure the `syncer` container includes the argument:
 
 ---
 
-### 2\. Delete Problematic Resources
+### 2. Delete Problematic Resources
 
 Remove the corrupted volume and corresponding pod:
 
@@ -60,7 +60,7 @@ This clears inconsistent etcd data from the affected replica.
 
 ---
 
-### 3\. Verify Single Replica Operation
+### 3. Verify Single Replica Operation
 
 Ensure the remaining pod is running and the vCluster is functional:
 
@@ -70,7 +70,7 @@ kubectl get pods -n <vcluster-namespace>
 
 ---
 
-### 4\. Scale Back Up to Multiple Replicas
+### 4. Scale Back Up to Multiple Replicas
 
 Once the single replica is healthy, scale the vCluster back up to **3 replicas**:
 
@@ -102,7 +102,7 @@ And ensure the `syncer` container includes the argument:
 
 ---
 
-### 5\. Monitor Recovery
+### 5. Monitor Recovery
 
 Watch the pods and logs to confirm that the etcd cluster re-forms and data sync resumes correctly:
 
